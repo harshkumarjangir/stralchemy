@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import Branding from './pages/Branding';
 import Marketing from './pages/Marketing';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/branding" element={<Branding />} />
             <Route path="/marketing" element={<Marketing />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             {/* Add more routes here as needed */}
           </Routes>
         </main>

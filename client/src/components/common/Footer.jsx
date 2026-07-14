@@ -31,7 +31,7 @@ const Footer = () => {
         <div>
           <h3 className="text-brand-purple font-semibold text-lg mb-6">Services</h3>
           <ul className="space-y-4 text-gray-600 text-sm">
-            <li><Link to="/privacy" className="hover:text-brand-purple transition-colors">Privacy Policy</Link></li>
+            <li><Link to="/privacy-policy" className="hover:text-brand-purple transition-colors">Privacy Policy</Link></li>
             <li><Link to="/terms" className="hover:text-brand-purple transition-colors">Terms & Conditions</Link></li>
           </ul>
         </div>
@@ -56,9 +56,9 @@ const Footer = () => {
           <h3 className="text-brand-purple font-semibold text-lg mb-6">Get In Touch</h3>
           <p className="text-gray-600 text-sm mb-4">Email: strategy@stralchemy.com</p>
           <div className="flex flex-col gap-3">
-            <input 
-              type="email" 
-              placeholder="Your Email Address" 
+            <input
+              type="email"
+              placeholder="Your Email Address"
               className="px-4 py-2 text-gray-900 rounded bg-gray-100 border border-gray-200 outline-none focus:ring-2 focus:ring-brand-purple"
             />
             <button className="bg-brand-purple hover:bg-opacity-90 text-white font-medium py-2 rounded transition-colors self-start px-6">
