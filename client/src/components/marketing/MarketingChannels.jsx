@@ -17,12 +17,12 @@ const marqueeItems = [...channels, ...channels, ...channels];
 const MarketingChannels = () => {
   return (
     <section className="py-24 bg-gray-900 text-white overflow-hidden relative border-t border-gray-800">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-green/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-teal-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-purple/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-pink-600/10 rounded-full blur-[80px] pointer-events-none"></div>
       
       <div className="max-w-4xl mx-auto text-center px-8 mb-16 relative z-10">
         <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 uppercase">
-          Marketing Channels <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-teal-400">We Strategize</span>
+          Marketing Channels <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-pink-400">We Strategize</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-400 font-medium">
           Not every channel fits every business.<br className="hidden md:block" /> 
@@ -35,7 +35,7 @@ const MarketingChannels = () => {
         {/* Marquee Left */}
         <div className="flex animate-marquee-left space-x-6 px-3 whitespace-nowrap">
           {marqueeItems.map((channel, i) => (
-            <div key={`left-${i}`} className="inline-block flex-shrink-0 bg-white/5 backdrop-blur-md border border-white/10 px-8 md:px-12 py-4 md:py-5 rounded-full text-lg md:text-2xl font-bold text-gray-200 hover:bg-brand-green hover:border-brand-green hover:text-white hover:scale-105 transition-all duration-300 cursor-default shadow-lg">
+            <div key={`left-${i}`} className="inline-block flex-shrink-0 bg-white/5 backdrop-blur-md border border-white/10 px-8 md:px-12 py-4 md:py-5 rounded-full text-lg md:text-2xl font-bold text-gray-200 hover:bg-brand-purple hover:border-brand-purple hover:text-white hover:scale-105 transition-all duration-300 cursor-default shadow-lg">
               {channel}
             </div>
           ))}
@@ -44,7 +44,7 @@ const MarketingChannels = () => {
         {/* Marquee Right */}
         <div className="flex animate-marquee-right space-x-6 px-3 whitespace-nowrap" style={{ animationDirection: 'reverse' }}>
           {marqueeItems.reverse().map((channel, i) => (
-            <div key={`right-${i}`} className="inline-block flex-shrink-0 bg-white/5 backdrop-blur-md border border-white/10 px-8 md:px-12 py-4 md:py-5 rounded-full text-lg md:text-2xl font-bold text-gray-200 hover:bg-teal-500 hover:border-teal-500 hover:text-white hover:scale-105 transition-all duration-300 cursor-default shadow-lg">
+            <div key={`right-${i}`} className="inline-block flex-shrink-0 bg-white/5 backdrop-blur-md border border-white/10 px-8 md:px-12 py-4 md:py-5 rounded-full text-lg md:text-2xl font-bold text-gray-200 hover:bg-pink-600 hover:border-pink-600 hover:text-white hover:scale-105 transition-all duration-300 cursor-default shadow-lg">
               {channel}
             </div>
           ))}

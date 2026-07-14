@@ -3,7 +3,7 @@ import React from 'react';
 const SolutionCard = ({ title, description, icon }) => {
   return (
     <div className="bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-[0_20px_40px_rgb(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-300 group">
-      <div className="w-14 h-14 bg-green-50 text-brand-green rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-green group-hover:text-white transition-colors duration-300">
+      <div className="w-14 h-14 bg-purple-50 text-brand-purple rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-purple group-hover:text-white transition-colors duration-300">
         {icon}
       </div>
       <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
@@ -23,7 +23,7 @@ const MarketingSolutions = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight uppercase">
             Strategic Marketing Solutions
           </h2>
-          <div className="w-24 h-1.5 bg-brand-green mx-auto mt-8 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-brand-purple mx-auto mt-8 rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

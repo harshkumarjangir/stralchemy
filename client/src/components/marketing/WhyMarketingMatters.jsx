@@ -7,7 +7,7 @@ const WhyMarketingMatters = () => {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-8 tracking-tight">
           Why Strategic Marketing <br />
-          <span className="text-brand-green">Matters</span>
+          <span className="text-brand-purple">Matters</span>
         </h2>
         <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-medium">
           Random acts of marketing burn budgets without building momentum. A cohesive strategy aligns every channel, message, and campaign toward measurable growth. The result? Maximum impact with minimum waste.
