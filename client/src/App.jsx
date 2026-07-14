@@ -10,6 +10,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import Branding from './pages/Branding';
 import Marketing from './pages/Marketing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/branding" element={<Branding />} />
             <Route path="/marketing" element={<Marketing />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<Terms />} />
             {/* Add more routes here as needed */}
           </Routes>
         </main>
