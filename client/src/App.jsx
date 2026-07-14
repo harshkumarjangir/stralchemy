@@ -12,7 +12,7 @@ import Marketing from './pages/Marketing';
 const App = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-gray-50">
+      <div className="flex flex-col min-h-screen bg-gray-50 overflow-x-hidden w-full">
         <Navbar />
         <main className="flex-grow">
           <Routes>
