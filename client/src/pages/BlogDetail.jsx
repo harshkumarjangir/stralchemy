@@ -84,13 +84,13 @@ const BlogDetail = () => {
           </div>
 
           <div 
-            className="prose-custom text-gray-700 leading-relaxed space-y-6 
-              [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:text-gray-900 [&>h2]:mt-12 [&>h2]:mb-6 [&>h2]:tracking-tight
-              [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mt-8 [&>h3]:mb-4
-              [&>p]:mb-6 [&>p]:text-[1.05rem] [&>p>strong]:text-gray-900
-              [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-8 [&>ul>li]:mb-3 [&>ul>li]:pl-2 [&>ul>li::marker]:text-brand-purple
-              [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-8 [&>ol>li]:mb-3 [&>ol>li]:pl-2
-              [&>a]:text-brand-purple [&>a]:underline hover:[&>a]:text-purple-800"
+            className="prose-custom text-gray-700 leading-relaxed space-y-6 break-words w-full overflow-hidden
+              [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:text-gray-900 [&>h2]:mt-12 [&>h2]:mb-6 [&>h2]:tracking-tight [&>h2]:break-words
+              [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mt-8 [&>h3]:mb-4 [&>h3]:break-words
+              [&>p]:mb-6 [&>p]:text-[1.05rem] [&>p>strong]:text-gray-900 [&>p]:whitespace-normal [&>p]:break-words [&>p]:max-w-full
+              [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-8 [&>ul>li]:mb-3 [&>ul>li]:pl-2 [&>ul>li::marker]:text-brand-purple [&>ul]:break-words
+              [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-8 [&>ol>li]:mb-3 [&>ol>li]:pl-2 [&>ol]:break-words
+              [&>a]:text-brand-purple [&>a]:underline hover:[&>a]:text-purple-800 [&>a]:break-all"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
 
