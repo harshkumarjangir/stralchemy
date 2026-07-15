@@ -5,6 +5,7 @@ import {
   updateContactStatus,
   deleteContact
 } from '../controllers/contactController.js';
+import { protect } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
@@ -12,8 +13,8 @@ const router = express.Router();
 router.post('/', submitContact);
 
 // Admin routes
-router.get('/', getContacts);
-router.put('/:id/status', updateContactStatus);
-router.delete('/:id', deleteContact);
+router.get('/', protect, getContacts);
+router.put('/:id/status', protect, updateContactStatus);
+router.delete('/:id', protect, deleteContact);
 
 export default router;

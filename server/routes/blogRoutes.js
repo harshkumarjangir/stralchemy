@@ -6,6 +6,7 @@ import {
   updateBlog,
   deleteBlog
 } from '../controllers/blogController.js';
+import { protect } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
@@ -13,9 +14,9 @@ const router = express.Router();
 router.get('/', getBlogs);
 router.get('/:slug', getBlogBySlug);
 
-// Admin only routes (in a real app, add verifyToken middleware here)
-router.post('/', createBlog);
-router.put('/:id', updateBlog);
-router.delete('/:id', deleteBlog);
+// Admin only routes
+router.post('/', protect, createBlog);
+router.put('/:id', protect, updateBlog);
+router.delete('/:id', protect, deleteBlog);
 
 export default router;
