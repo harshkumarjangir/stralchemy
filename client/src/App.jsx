@@ -7,6 +7,8 @@ import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
 import Branding from './pages/Branding';
 import Marketing from './pages/Marketing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -38,6 +40,8 @@ const App = () => {
             <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/:slug" element={<BlogDetail />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
             {/* Add more routes here as needed */}
           </Routes>
         </main>
