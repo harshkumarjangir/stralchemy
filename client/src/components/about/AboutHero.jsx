@@ -10,7 +10,7 @@ const AboutHero = () => {
         <p className="text-brand-green font-bold tracking-[0.2em] uppercase mb-6 text-sm">
           About Us
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight tracking-tighter uppercase">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 leading-tight tracking-tighter uppercase">
           Strategy is our <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-green animate-gradient-x">
             Craft

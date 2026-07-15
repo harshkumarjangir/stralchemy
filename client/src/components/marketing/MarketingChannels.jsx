@@ -21,7 +21,7 @@ const MarketingChannels = () => {
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-pink-600/10 rounded-full blur-[80px] pointer-events-none"></div>
       
       <div className="max-w-4xl mx-auto text-center px-8 mb-16 relative z-10">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 uppercase">
+        <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-6 uppercase">
           Marketing Channels <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-pink-400">We Strategize</span>
         </h2>
         <p className="text-lg md:text-xl text-gray-400 font-medium">

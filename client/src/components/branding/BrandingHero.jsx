@@ -11,7 +11,7 @@ const BrandingHero = () => {
         <p className="text-brand-purple font-bold tracking-[0.2em] uppercase mb-6 text-sm">
           Service / Branding
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight tracking-tighter">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 leading-tight tracking-tighter">
           Brand Strategy that <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 animate-gradient-x">
             Commands Attention

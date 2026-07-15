@@ -5,7 +5,7 @@ const WhyMarketingMatters = () => {
     <section className="py-32 px-8 bg-gray-50 border-b border-gray-100 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30"></div>
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-8 tracking-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 tracking-tight">
           Why Strategic Marketing <br />
           <span className="text-brand-purple">Matters</span>
         </h2>

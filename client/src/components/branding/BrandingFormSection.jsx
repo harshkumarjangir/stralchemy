@@ -4,7 +4,7 @@ const BrandingFormSection = () => {
   return (
     <section id="branding-form" className="py-24 px-8 bg-white relative">
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-pink-500 tracking-tight mb-4 uppercase">
+        <h2 className="text-2xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-pink-500 tracking-tight mb-4 uppercase">
           OUTLINE THE DNA OF YOUR BRAND
         </h2>
         <p className="text-lg text-gray-600 font-medium">

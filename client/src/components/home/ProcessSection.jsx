@@ -34,7 +34,7 @@ const ProcessSection = () => {
           <p className="text-brand-purple font-bold tracking-widest uppercase text-sm mb-4">
             How We Work
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 uppercase">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-4 uppercase">
             The Stralchemy Process
           </h2>
           <p className="text-xl text-gray-600">

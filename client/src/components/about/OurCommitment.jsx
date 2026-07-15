@@ -7,7 +7,7 @@ const OurCommitment = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-brand-purple/10 to-brand-green/10 rounded-full blur-[100px] pointer-events-none"></div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight uppercase mb-8">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight uppercase mb-8">
           Our Commitment to You
         </h2>
         <div className="text-xl text-gray-700 leading-relaxed font-medium mb-20 bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm">

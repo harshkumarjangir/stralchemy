@@ -10,7 +10,7 @@ const HeroSection = () => {
           <p className="font-semibold text-lg text-brand-purple">
             Where Strategy Strikes <span className="text-yellow-500">Gold</span>
           </p>
-          <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
             <span className="bg-gradient-to-r from-brand-purple to-brand-green bg-clip-text text-transparent">
               Transform your brand from invisible to inevitable
             </span>

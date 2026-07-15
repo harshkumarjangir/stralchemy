@@ -20,7 +20,7 @@ const WhatWeDeliver = () => {
       <div className="absolute top-0 right-0 w-64 h-64 bg-gray-50 rounded-full blur-3xl pointer-events-none"></div>
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight uppercase">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight uppercase">
             What We Deliver
           </h2>
           <div className="w-24 h-1.5 bg-brand-purple mx-auto mt-8 rounded-full"></div>

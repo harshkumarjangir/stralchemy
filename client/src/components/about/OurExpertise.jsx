@@ -11,7 +11,7 @@ const OurExpertise = () => {
   return (
     <section className="py-24 px-8 bg-white border-b border-gray-100">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight uppercase mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight uppercase mb-12">
           Our Expertise
         </h2>
         

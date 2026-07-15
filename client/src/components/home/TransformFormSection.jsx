@@ -60,7 +60,7 @@ const TransformFormSection = () => {
   return (
     <section className="py-24 px-8 bg-white relative">
       <div className="max-w-4xl mx-auto text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#b968c7] to-[#7f26d9] tracking-tight mb-2 uppercase">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#b968c7] to-[#7f26d9] tracking-tight mb-2 uppercase">
           READY TO TRANSFORM YOUR BRAND?
         </h2>
         <p className="text-gray-900 font-bold mb-8">

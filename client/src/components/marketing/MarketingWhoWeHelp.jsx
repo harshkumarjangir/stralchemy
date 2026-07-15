@@ -12,7 +12,7 @@ const MarketingWhoWeHelp = () => {
         {/* Startups Section */}
         <div className="mb-40">
           <div className="text-center mb-16 relative">
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-900 mb-6 uppercase tracking-tighter leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 uppercase tracking-tighter leading-tight">
               For <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-purple-500">Startups</span> & <br className="hidden md:block" /> Early Stage
             </h2>
             <div className="inline-block bg-purple-50 border border-purple-100 text-brand-purple px-6 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-6">
@@ -43,7 +43,7 @@ const MarketingWhoWeHelp = () => {
         {/* Established Section */}
         <div>
           <div className="text-center mb-16 relative">
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-900 mb-6 uppercase tracking-tighter leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 uppercase tracking-tighter leading-tight">
               For <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-green-500">Established</span> <br className="hidden md:block" /> Businesses
             </h2>
             <div className="inline-block bg-green-50 border border-green-100 text-brand-green px-6 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-6">

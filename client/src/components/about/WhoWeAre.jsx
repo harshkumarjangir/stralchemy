@@ -4,7 +4,7 @@ const WhoWeAre = () => {
   return (
     <section className="py-24 px-8 bg-white border-b border-gray-100 relative">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 tracking-tight uppercase">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12 tracking-tight uppercase">
           Who We Are
         </h2>
         <div className="space-y-8 text-lg md:text-xl text-gray-600 leading-relaxed font-medium text-left bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm">
