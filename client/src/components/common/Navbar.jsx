@@ -8,10 +8,14 @@ const navLinks = [
   { name: 'BRANDING', path: '/branding' },
   {
     name: 'CASE STUDIES',
+    path: '/case-studies',
     dropdown: [
-      { name: 'Study 1', path: '/case-studies/1' },
-      { name: 'Study 2', path: '/case-studies/2' },
-      { name: 'Study 3', path: '/case-studies/3' },
+      { name: 'Ecommerce & Retail', path: '/case-studies/ecommerce-retail' },
+      { name: 'Technology & SaaS', path: '/case-studies/technology-saas' },
+      { name: 'Finance & FinTech', path: '/case-studies/finance-fintech' },
+      { name: 'Healthcare & Wellness', path: '/case-studies/healthcare-wellness' },
+      { name: 'Real Estate', path: '/case-studies/real-estate' },
+      { name: 'View All Industries ➔', path: '/case-studies' },
     ],
   },
   { name: 'BLOGS', path: '/blogs' },
@@ -32,12 +36,12 @@ const Navbar = () => {
         {navLinks.map((link) => (
           link.dropdown ? (
             <div key={link.name} className="relative group py-2">
-              <button className="flex items-center hover:text-brand-purple transition-colors outline-none uppercase font-semibold">
+              <Link to={link.path || '#'} className="flex items-center hover:text-brand-purple transition-colors outline-none uppercase font-semibold">
                 {link.name}
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
-              </button>
+              </Link>
               <div className="absolute top-full left-0 mt-0 w-48 bg-white border border-gray-100 shadow-lg rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all z-50">
                 {link.dropdown.map((subLink) => (
                   <Link key={subLink.name} to={subLink.path} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-purple">

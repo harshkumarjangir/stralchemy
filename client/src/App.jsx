@@ -12,6 +12,8 @@ import Marketing from './pages/Marketing';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import Contact from './pages/Contact';
+import CaseStudies from './pages/CaseStudies';
+import CaseStudyDetail from './pages/CaseStudyDetail';
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
             {/* Add more routes here as needed */}
           </Routes>
         </main>
