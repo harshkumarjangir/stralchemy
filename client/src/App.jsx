@@ -14,6 +14,8 @@ import Terms from './pages/Terms';
 import Contact from './pages/Contact';
 import CaseStudies from './pages/CaseStudies';
 import CaseStudyDetail from './pages/CaseStudyDetail';
+import Blogs from './pages/Blogs';
+import BlogDetail from './pages/BlogDetail';
 
 const App = () => {
   return (
@@ -34,6 +36,8 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:slug" element={<BlogDetail />} />
             {/* Add more routes here as needed */}
           </Routes>
         </main>
