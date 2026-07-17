@@ -11,7 +11,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/blogs/${slug}`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs/${slug}`);
         setBlog(data);
       } catch (err) {
         setError('Blog post not found or not published yet.');

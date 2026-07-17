@@ -42,7 +42,7 @@ const BlogEditor = () => {
       // For admin, we should be able to get all blogs and find it, or add a getById route.
       // Since we already fetched all blogs in the manager, let's just fetch all and find it, 
       // or better: add a quick fetch logic
-      const { data } = await axios.get('http://localhost:5000/api/blogs?isAdmin=true');
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs?isAdmin=true`);
       const blog = data.find(b => b._id === id);
       if (blog) {
         setFormData({
@@ -80,9 +80,9 @@ const BlogEditor = () => {
 
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:5000/api/blogs/${id}?isAdmin=true`, payload);
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/blogs/${id}?isAdmin=true`, payload);
       } else {
-        await axios.post('http://localhost:5000/api/blogs?isAdmin=true', payload);
+        await axios.post(`${import.meta.env.VITE_API_URL}/api/blogs?isAdmin=true`, payload);
       }
       navigate('/');
     } catch (error) {

@@ -11,7 +11,7 @@ const ContactMessages = () => {
 
   const fetchMessages = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/contacts?isAdmin=true');
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/contacts?isAdmin=true`);
       setMessages(data);
     } catch (error) {
       console.error('Error fetching contact messages:', error);
@@ -23,7 +23,7 @@ const ContactMessages = () => {
   const handleToggleStatus = async (id, currentStatus) => {
     const newStatus = currentStatus === 'unread' ? 'read' : 'unread';
     try {
-      const { data } = await axios.put(`http://localhost:5000/api/contacts/${id}/status?isAdmin=true`, {
+      const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/api/contacts/${id}/status?isAdmin=true`, {
         status: newStatus,
       });
       setMessages(messages.map(msg => (msg._id === id ? data : msg)));
@@ -35,7 +35,7 @@ const ContactMessages = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this message?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/contacts/${id}?isAdmin=true`);
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}?isAdmin=true`);
         setMessages(messages.filter((msg) => msg._id !== id));
       } catch (error) {
         console.error('Error deleting message:', error);

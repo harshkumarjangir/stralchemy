@@ -30,7 +30,7 @@ const Dashboard = () => {
   const fetchStrategies = async (user) => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      const { data } = await axios.get(`http://localhost:5000/api/strategy/user?email=${user.email}`, config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/strategy/user?email=${user.email}`, config);
       setStrategies(data);
     } catch (error) {
       console.error('Failed to fetch strategies');
@@ -41,7 +41,7 @@ const Dashboard = () => {
     setLoadingPayment(true);
     try {
       // 1. Create final order
-      const { data: { order, keyId } } = await axios.post(`http://localhost:5000/api/strategy/${strategy._id}/create-final-order`);
+      const { data: { order, keyId } } = await axios.post(`${import.meta.env.VITE_API_URL}/api/strategy/${strategy._id}/create-final-order`);
 
       // 2. Open Razorpay Checkout
       const options = {
@@ -54,7 +54,7 @@ const Dashboard = () => {
         handler: async function (response) {
           try {
             // 3. Verify Payment
-            await axios.post(`http://localhost:5000/api/strategy/${strategy._id}/verify-final-payment`, {
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/strategy/${strategy._id}/verify-final-payment`, {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature || 'mock_signature',
@@ -90,7 +90,7 @@ const Dashboard = () => {
   const handleDownload = async (strategyId) => {
     try {
       // Simple redirect to download endpoint
-      window.open(`http://localhost:5000/api/strategy/${strategyId}/download`, '_blank');
+      window.open(`${import.meta.env.VITE_API_URL}/api/strategy/${strategyId}/download`, '_blank');
     } catch (err) {
       alert('Failed to download.');
     }

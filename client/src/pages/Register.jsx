@@ -29,7 +29,7 @@ const Register = () => {
     setError('');
 
     try {
-      await axios.post('http://localhost:5000/api/users/register', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/users/register`, {
         firstName: formData.firstName,
         lastName: formData.lastName,
         username: formData.username,

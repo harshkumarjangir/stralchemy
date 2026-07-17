@@ -52,7 +52,7 @@ const TransformFormSection = () => {
 
     try {
       // 1. Create order
-      const { data: { order, keyId } } = await axios.post('http://localhost:5000/api/strategy/create-order', {
+      const { data: { order, keyId } } = await axios.post(`${import.meta.env.VITE_API_URL}/api/strategy/create-order`, {
         packageValue: formData.packageValue
       });
 
@@ -71,7 +71,7 @@ const TransformFormSection = () => {
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
             const headers = userInfo ? { Authorization: `Bearer ${userInfo.token}` } : {};
 
-            const verifyRes = await axios.post('http://localhost:5000/api/strategy/verify-payment', {
+            const verifyRes = await axios.post(`${import.meta.env.VITE_API_URL}/api/strategy/verify-payment`, {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature || 'mock_signature',

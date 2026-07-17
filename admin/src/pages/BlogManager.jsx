@@ -13,7 +13,7 @@ const BlogManager = () => {
 
   const fetchBlogs = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/blogs?isAdmin=true');
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs?isAdmin=true`);
       setBlogs(data);
     } catch (error) {
       console.error('Error fetching blogs:', error);
@@ -25,7 +25,7 @@ const BlogManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this blog?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/blogs/${id}?isAdmin=true`);
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/blogs/${id}?isAdmin=true`);
         setBlogs(blogs.filter((blog) => blog._id !== id));
       } catch (error) {
         console.error('Error deleting blog:', error);
@@ -35,7 +35,7 @@ const BlogManager = () => {
 
   const handleTogglePublish = async (blog) => {
     try {
-      const { data } = await axios.put(`http://localhost:5000/api/blogs/${blog._id}?isAdmin=true`, {
+      const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/api/blogs/${blog._id}?isAdmin=true`, {
         isPublished: !blog.isPublished,
       });
       setBlogs(blogs.map((b) => (b._id === blog._id ? data : b)));

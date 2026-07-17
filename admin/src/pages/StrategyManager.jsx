@@ -17,7 +17,7 @@ const StrategyManager = () => {
       const adminInfo = JSON.parse(localStorage.getItem('adminInfo'));
       const config = { headers: { Authorization: `Bearer ${adminInfo.token}` } };
       
-      const { data } = await axios.get('http://localhost:5000/api/strategy/admin', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/strategy/admin`, config);
       setStrategies(data);
     } catch (err) {
       setError('Failed to fetch strategies');
@@ -49,7 +49,7 @@ const StrategyManager = () => {
         } 
       };
 
-      await axios.post(`http://localhost:5000/api/strategy/admin/${id}/upload`, formData, config);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/strategy/admin/${id}/upload`, formData, config);
       alert('PDF uploaded successfully!');
       setSelectedFile(null);
       fetchStrategies();
