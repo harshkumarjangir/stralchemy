@@ -3,6 +3,7 @@ import blogRoutes from './blogRoutes.js';
 import contactRoutes from './contactRoutes.js';
 import authRoutes from './authRoutes.js';
 import userRoutes from './userRoutes.js';
+import strategyRoutes from './strategyRoutes.js';
 
 const router = express.Router();
 
@@ -14,5 +15,6 @@ router.use('/api/auth', authRoutes); // Admin Auth
 router.use('/api/users', userRoutes); // Client Auth
 router.use('/api/blogs', blogRoutes);
 router.use('/api/contacts', contactRoutes);
+router.use('/api/strategy', strategyRoutes);
 
 export default router;

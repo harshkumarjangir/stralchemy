@@ -5,6 +5,7 @@ import AdminLayout from './components/AdminLayout';
 import BlogManager from './pages/BlogManager';
 import BlogEditor from './pages/BlogEditor';
 import ContactMessages from './pages/ContactMessages';
+import StrategyManager from './pages/StrategyManager';
 import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -48,6 +49,7 @@ const App = () => {
             <Route path="/blogs/new" element={<BlogEditor />} />
             <Route path="/blogs/edit/:id" element={<BlogEditor />} />
             <Route path="/contacts" element={<ContactMessages />} />
+            <Route path="/strategies" element={<StrategyManager />} />
           </Route>
         </Route>
       </Routes>

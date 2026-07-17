@@ -1,18 +1,100 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Dashboard = () => {
   const [userInfo, setUserInfo] = useState(null);
+  const [strategies, setStrategies] = useState([]);
+  const [loadingPayment, setLoadingPayment] = useState(false);
   const navigate = useNavigate();
+
+  // Load Razorpay script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   useEffect(() => {
     const user = localStorage.getItem('userInfo');
     if (!user) {
       navigate('/login');
     } else {
-      setUserInfo(JSON.parse(user));
+      const parsedUser = JSON.parse(user);
+      setUserInfo(parsedUser);
+      fetchStrategies(parsedUser);
     }
   }, [navigate]);
+
+  const fetchStrategies = async (user) => {
+    try {
+      const config = { headers: { Authorization: `Bearer ${user.token}` } };
+      const { data } = await axios.get(`http://localhost:5000/api/strategy/user?email=${user.email}`, config);
+      setStrategies(data);
+    } catch (error) {
+      console.error('Failed to fetch strategies');
+    }
+  };
+
+  const handleFinalPayment = async (strategy) => {
+    setLoadingPayment(true);
+    try {
+      // 1. Create final order
+      const { data: { order, keyId } } = await axios.post(`http://localhost:5000/api/strategy/${strategy._id}/create-final-order`);
+
+      // 2. Open Razorpay Checkout
+      const options = {
+        key: keyId,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'Stralchemy',
+        description: 'Remaining 50% Strategy Payment',
+        order_id: order.id,
+        handler: async function (response) {
+          try {
+            // 3. Verify Payment
+            await axios.post(`http://localhost:5000/api/strategy/${strategy._id}/verify-final-payment`, {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature || 'mock_signature',
+            });
+            alert('Payment successful! You can now download your strategy.');
+            fetchStrategies(userInfo);
+          } catch (err) {
+            alert('Payment verification failed.');
+          }
+        },
+        prefill: {
+          name: strategy.name,
+          email: strategy.email,
+          contact: strategy.phone
+        },
+        theme: {
+          color: '#9c27b0'
+        }
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', function (response) {
+        alert('Payment failed. Please try again.');
+      });
+      rzp.open();
+    } catch (err) {
+      alert('Failed to initiate checkout.');
+    } finally {
+      setLoadingPayment(false);
+    }
+  };
+
+  const handleDownload = async (strategyId) => {
+    try {
+      // Simple redirect to download endpoint
+      window.open(`http://localhost:5000/api/strategy/${strategyId}/download`, '_blank');
+    } catch (err) {
+      alert('Failed to download.');
+    }
+  };
 
   if (!userInfo) return null;
 
@@ -41,35 +123,64 @@ const Dashboard = () => {
           {/* Main Content Area (Spans 2 columns on tablet/desktop) */}
           <div className="md:col-span-2 space-y-8">
             
-            {/* Recent Activity Card */}
+            {/* My Strategies Card */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <svg className="w-5 h-5 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
-                Recent Activity
+                My Strategies
               </h2>
               
               <div className="space-y-6">
-                <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-full bg-green-100 text-brand-green flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 text-sm">Account Created</h4>
-                    <p className="text-gray-500 text-xs mt-1">You successfully joined the Stralchemy platform.</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-full bg-purple-100 text-brand-purple flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 text-sm">Explored Services</h4>
-                    <p className="text-gray-500 text-xs mt-1">You viewed our Branding and Marketing capabilities.</p>
-                  </div>
-                </div>
+                {strategies.length === 0 ? (
+                  <p className="text-gray-500 text-sm">You haven't requested any strategies yet.</p>
+                ) : (
+                  strategies.map(strat => (
+                    <div key={strat._id} className="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+                      <div className="flex justify-between items-start mb-3">
+                        <div>
+                          <h4 className="font-bold text-gray-900 capitalize">{strat.packageValue.replace('_', ' ')} Strategy</h4>
+                          <p className="text-sm text-gray-500">{strat.businessName}</p>
+                        </div>
+                        <span className={`px-3 py-1 text-xs font-bold rounded-full ${
+                          strat.paymentStatus === 'fully_paid' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                        }`}>
+                          {strat.paymentStatus === 'fully_paid' ? 'Fully Paid' : '50% Paid'}
+                        </span>
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <span className="text-sm text-gray-500">
+                          {new Date(strat.createdAt).toLocaleDateString()}
+                        </span>
+                        
+                        <div>
+                          {strat.pdfUrl ? (
+                            strat.paymentStatus === 'fully_paid' ? (
+                              <button 
+                                onClick={() => handleDownload(strat._id)}
+                                className="bg-brand-purple text-white px-4 py-2 rounded text-sm font-bold shadow hover:bg-opacity-90 transition-all"
+                              >
+                                Download PDF
+                              </button>
+                            ) : (
+                              <button 
+                                onClick={() => handleFinalPayment(strat)}
+                                disabled={loadingPayment}
+                                className="bg-brand-green text-white px-4 py-2 rounded text-sm font-bold shadow hover:bg-opacity-90 transition-all"
+                              >
+                                {loadingPayment ? 'Processing...' : 'Pay Remaining 50% to Download'}
+                              </button>
+                            )
+                          ) : (
+                            <span className="text-sm text-gray-400 italic">Processing strategy...</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
 
