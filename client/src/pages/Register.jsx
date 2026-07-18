@@ -12,6 +12,7 @@ const Register = () => {
     confirmPassword: ''
   });
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -27,6 +28,7 @@ const Register = () => {
     
     setLoading(true);
     setError('');
+    setSuccess('');
 
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/api/users/register`, {
@@ -36,10 +38,12 @@ const Register = () => {
         email: formData.email,
         password: formData.password
       });
-      navigate('/login');
+      setSuccess('Registration successful! Redirecting to login...');
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
-    } finally {
       setLoading(false);
     }
   };
@@ -50,6 +54,7 @@ const Register = () => {
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Create an Account</h2>
         
         {error && <div className="bg-red-50 text-red-700 p-3 rounded mb-4 text-sm">{error}</div>}
+        {success && <div className="bg-green-50 text-green-700 p-3 rounded mb-4 text-sm">{success}</div>}
         
         <form className="space-y-4" onSubmit={handleRegister}>
           

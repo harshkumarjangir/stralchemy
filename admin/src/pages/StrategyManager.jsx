@@ -131,7 +131,7 @@ const StrategyManager = () => {
                       <button 
                         onClick={() => handleUpload(strat._id)}
                         disabled={uploadingId === strat._id}
-                        className="bg-brand-purple text-white px-3 py-1 rounded text-xs font-bold hover:bg-opacity-90 disabled:opacity-50"
+                        className="bg-purple-600 text-white px-4 py-2 rounded text-xs font-bold hover:bg-purple-700 shadow-sm disabled:opacity-50 transition-colors"
                       >
                         {uploadingId === strat._id ? 'Uploading...' : 'Upload'}
                       </button>

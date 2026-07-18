@@ -6,6 +6,7 @@ const Login = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -13,6 +14,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setSuccess('');
 
     try {
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/login`, {
@@ -20,10 +22,13 @@ const Login = () => {
         password
       });
       localStorage.setItem('userInfo', JSON.stringify(data));
-      navigate('/'); // Redirect to home or dashboard after login
+      setSuccess('Login successful! Redirecting...');
+      setTimeout(() => {
+        // Redirect to home or dashboard after login, hard reload to update nav bar
+        window.location.href = '/'; 
+      }, 1500);
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
-    } finally {
       setLoading(false);
     }
   };
@@ -34,6 +39,7 @@ const Login = () => {
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
         
         {error && <div className="bg-red-50 text-red-700 p-3 rounded mb-4 text-sm">{error}</div>}
+        {success && <div className="bg-green-50 text-green-700 p-3 rounded mb-4 text-sm">{success}</div>}
 
         <form className="space-y-4" onSubmit={handleLogin}>
           <div>

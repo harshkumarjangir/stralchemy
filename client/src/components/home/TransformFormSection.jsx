@@ -193,9 +193,6 @@ const TransformFormSection = () => {
 
         {/* Form Container */}
         <div className="bg-white">
-          {errorMsg && <div className="bg-red-50 text-red-600 p-4 rounded mb-6 font-bold">{errorMsg}</div>}
-          {successMsg && <div className="bg-green-50 text-green-600 p-4 rounded mb-6 font-bold">{successMsg}</div>}
-
           <form className="space-y-16" onSubmit={handleSubmit}>
              
              {/* Step 1 */}
@@ -298,6 +295,8 @@ const TransformFormSection = () => {
 
              {/* Submit */}
              <div className="pt-8">
+               {errorMsg && <div className="bg-red-50 text-red-600 p-4 rounded mb-6 font-bold text-center">{errorMsg}</div>}
+               {successMsg && <div className="bg-green-50 text-green-600 p-4 rounded mb-6 font-bold text-center">{successMsg}</div>}
                <button 
                  type="submit" 
                  disabled={loading}
