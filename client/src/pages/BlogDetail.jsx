@@ -46,28 +46,19 @@ const BlogDetail = () => {
 
   return (
     <div className="bg-[#f8f9fa] min-h-screen pb-24">
-      {/* Decorative Header Banner - Matching Screenshot styling */}
-      <div className="relative w-full h-[250px] md:h-[350px] bg-white overflow-hidden border-b-[6px] border-brand-purple">
-        {/* Purple abstract shape */}
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] bg-brand-purple rounded-full opacity-90 mix-blend-multiply"></div>
-        {/* Gold abstract shape */}
-        <div className="absolute -bottom-32 right-10 w-[300px] h-[300px] bg-[#cba328] rounded-tl-[100px] opacity-90 mix-blend-multiply"></div>
-        
-        {blog.coverImage && (
+      {/* Header Banner */}
+      <div className="relative w-full h-[250px] md:h-[350px] bg-gray-900 overflow-hidden border-b-[6px] border-brand-purple">
+        {blog.coverImage ? (
           <img 
             src={blog.coverImage.startsWith('http') ? blog.coverImage : `${import.meta.env.VITE_API_URL}${blog.coverImage}`}
             alt={blog.title} 
-            className="w-full h-full object-cover opacity-30 mix-blend-overlay"
+            className="w-full h-full object-cover opacity-90"
           />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-r from-purple-900 to-indigo-900 flex items-center justify-center">
+            <span className="text-6xl opacity-30">📰</span>
+          </div>
         )}
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-           <div className="bg-white px-8 py-4 shadow-xl border-t-4 border-black inline-block transform -rotate-2">
-              <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight uppercase text-black">
-                {blog.tags && blog.tags[0] ? blog.tags[0] : 'BRANDING'}!
-              </h2>
-           </div>
-        </div>
       </div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 -mt-10 relative z-10">
