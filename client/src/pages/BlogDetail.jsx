@@ -55,7 +55,7 @@ const BlogDetail = () => {
         
         {blog.coverImage && (
           <img 
-            src={blog.coverImage} 
+            src={blog.coverImage.startsWith('http') ? blog.coverImage : `${import.meta.env.VITE_API_URL}${blog.coverImage}`}
             alt={blog.title} 
             className="w-full h-full object-cover opacity-30 mix-blend-overlay"
           />

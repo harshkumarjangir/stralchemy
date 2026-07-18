@@ -51,7 +51,7 @@ const Blogs = () => {
                 <div className="h-48 bg-gray-200 overflow-hidden relative">
                   {blog.coverImage ? (
                     <img 
-                      src={blog.coverImage} 
+                      src={blog.coverImage.startsWith('http') ? blog.coverImage : `${import.meta.env.VITE_API_URL}${blog.coverImage}`}
                       alt={blog.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                     />

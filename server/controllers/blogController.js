@@ -47,7 +47,12 @@ export const getBlogBySlug = async (req, res) => {
 
 // Create a new blog
 export const createBlog = async (req, res) => {
+  console.log('req.body:', req.body);
+  console.log('req.file:', req.file);
   try {
+    if (req.file) {
+      req.body.coverImage = `/uploads/${req.file.filename}`;
+    }
     const newBlog = new Blog(req.body);
     const savedBlog = await newBlog.save();
     res.status(201).json(savedBlog);
@@ -72,6 +77,10 @@ export const updateBlog = async (req, res) => {
     
     if (!blog) {
       return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    if (req.file) {
+      req.body.coverImage = `/uploads/${req.file.filename}`;
     }
 
     // Update fields

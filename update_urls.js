@@ -14,16 +14,16 @@ function processDir(dir) {
       processDir(fullPath);
     } else if (fullPath.endsWith('.jsx') || fullPath.endsWith('.js')) {
       let content = fs.readFileSync(fullPath, 'utf8');
-      if (content.includes('http://localhost:6000')) {
-        // Replace single quoted 'http://localhost:6000/...' with `${import.meta.env.VITE_API_URL}/...`
-        content = content.replace(/'http:\/\/localhost:6000([^']*)'/g, '`${import.meta.env.VITE_API_URL}$1`');
-        
-        // Replace double quoted "http://localhost:6000/..." with `${import.meta.env.VITE_API_URL}/...`
-        content = content.replace(/"http:\/\/localhost:6000([^"]*)"/g, '`${import.meta.env.VITE_API_URL}$1`');
-        
-        // Replace within template literals: `http://localhost:6000/...
-        content = content.replace(/http:\/\/localhost:6000/g, '${import.meta.env.VITE_API_URL}');
-        
+      if (content.includes('http://localhost:5100')) {
+        // Replace single quoted 'http://localhost:5100/...' with `${import.meta.env.VITE_API_URL}/...`
+        content = content.replace(/'http:\/\/localhost:5100([^']*)'/g, '`${import.meta.env.VITE_API_URL}$1`');
+
+        // Replace double quoted "http://localhost:5100/..." with `${import.meta.env.VITE_API_URL}/...`
+        content = content.replace(/"http:\/\/localhost:5100([^"]*)"/g, '`${import.meta.env.VITE_API_URL}$1`');
+
+        // Replace within template literals: `http://localhost:5100/...
+        content = content.replace(/http:\/\/localhost:5100/g, '${import.meta.env.VITE_API_URL}');
+
         fs.writeFileSync(fullPath, content);
         console.log('Updated', fullPath);
       }

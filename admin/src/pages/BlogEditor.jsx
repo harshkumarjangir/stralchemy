@@ -30,6 +30,9 @@ const BlogEditor = () => {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(isEditing);
 
+  const [coverImageFile, setCoverImageFile] = useState(null);
+  const [coverImagePreview, setCoverImagePreview] = useState('');
+
   useEffect(() => {
     if (isEditing) {
       fetchBlog();
@@ -38,10 +41,6 @@ const BlogEditor = () => {
 
   const fetchBlog = async () => {
     try {
-      // Need to fetch by ID. Our public route gets by slug. 
-      // For admin, we should be able to get all blogs and find it, or add a getById route.
-      // Since we already fetched all blogs in the manager, let's just fetch all and find it, 
-      // or better: add a quick fetch logic
       const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs?isAdmin=true`);
       const blog = data.find(b => b._id === id);
       if (blog) {
@@ -54,6 +53,13 @@ const BlogEditor = () => {
           publishedAt: new Date(blog.publishedAt).toISOString().split('T')[0],
         });
         setContent(blog.content);
+        if (blog.coverImage) {
+          if (blog.coverImage.startsWith('http')) {
+            setCoverImagePreview(blog.coverImage);
+          } else {
+            setCoverImagePreview(`${import.meta.env.VITE_API_URL}${blog.coverImage}`);
+          }
+        }
       }
     } catch (error) {
       console.error('Error fetching blog for edit:', error);
@@ -63,26 +69,44 @@ const BlogEditor = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
+    const { name, value, type, checked, files } = e.target;
+    if (type === 'file') {
+      const file = files[0];
+      setCoverImageFile(file);
+      if (file) {
+        setCoverImagePreview(URL.createObjectURL(file));
+      } else {
+        setCoverImagePreview('');
+      }
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = {
-      ...formData,
-      content,
-      tags: formData.tags.split(',').map((tag) => tag.trim()).filter(Boolean),
-    };
+    
+    const payloadData = new FormData();
+    payloadData.append('title', formData.title);
+    payloadData.append('author', formData.author);
+    if (coverImageFile) {
+      payloadData.append('coverImageFile', coverImageFile);
+    }
+    payloadData.append('isPublished', formData.isPublished);
+    payloadData.append('publishedAt', formData.publishedAt);
+    payloadData.append('content', content);
+    
+    const tagsArray = formData.tags.split(',').map((tag) => tag.trim()).filter(Boolean);
+    tagsArray.forEach(tag => payloadData.append('tags', tag));
 
     try {
       if (isEditing) {
-        await axios.put(`${import.meta.env.VITE_API_URL}/api/blogs/${id}?isAdmin=true`, payload);
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/blogs/${id}?isAdmin=true`, payloadData);
       } else {
-        await axios.post(`${import.meta.env.VITE_API_URL}/api/blogs?isAdmin=true`, payload);
+        await axios.post(`${import.meta.env.VITE_API_URL}/api/blogs?isAdmin=true`, payloadData);
       }
       navigate('/');
     } catch (error) {
@@ -129,14 +153,19 @@ const BlogEditor = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Cover Image URL</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Cover Image</label>
             <input
-              type="text"
-              name="coverImage"
-              value={formData.coverImage}
+              type="file"
+              name="coverImageFile"
+              accept="image/*"
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
             />
+            {coverImagePreview && (
+              <div className="mt-2 relative h-32 w-48 rounded overflow-hidden shadow">
+                <img src={coverImagePreview} alt="Cover Preview" className="object-cover w-full h-full" />
+              </div>
+            )}
           </div>
 
           <div className="col-span-2">
