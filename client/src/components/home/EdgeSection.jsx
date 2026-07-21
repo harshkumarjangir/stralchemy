@@ -26,12 +26,12 @@ const EdgeSection = () => {
             <p className="text-gray-600 group-hover:text-purple-100 transition-colors duration-300 mb-8 leading-relaxed">
               Forge an identity that resonates. From startups finding their voice to established brands evolving for tomorrow, we craft the essence that makes you unforgettable.
             </p>
-            <Link to="/branding" className="inline-flex items-center text-brand-purple group-hover:text-white font-semibold hover:text-opacity-80 transition-colors group/link mt-auto uppercase tracking-wide text-sm">
+            <a href="#transform-form" className="inline-flex items-center text-brand-purple group-hover:text-white font-semibold hover:text-opacity-80 transition-colors group/link mt-auto uppercase tracking-wide text-sm">
               BUILD YOUR BRAND 
               <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
-            </Link>
+            </a>
           </div>
 
           {/* Card 2: Marketing Strategy */}
@@ -45,12 +45,12 @@ const EdgeSection = () => {
             <p className="text-gray-600 group-hover:text-purple-100 transition-colors duration-300 mb-8 leading-relaxed">
               Growth isn’t luck - it’s engineered. Industry-specific strategies that turn your audience into advocates and your efforts into exponential results.
             </p>
-            <Link to="/marketing" className="inline-flex items-center text-brand-green group-hover:text-white font-semibold hover:text-opacity-80 transition-colors group/link mt-auto uppercase tracking-wide text-sm">
+            <a href="#transform-form" className="inline-flex items-center text-brand-green group-hover:text-white font-semibold hover:text-opacity-80 transition-colors group/link mt-auto uppercase tracking-wide text-sm">
               ACCELERATE GROWTH 
               <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
-            </Link>
+            </a>
           </div>
 
           {/* Card 3: Tailored To You */}
@@ -64,7 +64,7 @@ const EdgeSection = () => {
             <p className="text-gray-600 group-hover:text-purple-100 transition-colors duration-300 mb-8 leading-relaxed">
               No cookie-cutter solutions. Every strategy is custom-built for industry, stage, and ambition- whether you’re day one or decade ten.
             </p>
-            <a href="#contact" className="inline-flex items-center text-brand-purple group-hover:text-white font-semibold hover:text-opacity-80 transition-colors group/link mt-auto uppercase tracking-wide text-sm">
+            <a href="#transform-form" className="inline-flex items-center text-brand-purple group-hover:text-white font-semibold hover:text-opacity-80 transition-colors group/link mt-auto uppercase tracking-wide text-sm">
               Kickstart Your Journey 
               <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

@@ -160,7 +160,7 @@ const TransformFormSection = () => {
   };
 
   return (
-    <section className="py-24 px-8 bg-white relative">
+    <section id="transform-form" className="py-24 px-8 bg-white relative">
       <div className="max-w-4xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#b968c7] to-[#7f26d9] tracking-tight mb-2 uppercase">
           READY TO TRANSFORM YOUR BRAND?
@@ -173,16 +173,16 @@ const TransformFormSection = () => {
       <div className="max-w-3xl mx-auto">
         {/* Tabs */}
         <div className="flex justify-center mb-16 relative">
-           <div className="flex space-x-2">
+           <div className="inline-flex flex-col sm:flex-row bg-white sm:bg-gray-100 sm:p-2 sm:rounded-full shadow-sm sm:shadow-inner gap-2 sm:gap-0 w-full sm:w-auto">
              {['branding', 'marketing', 'bundle'].map((tab) => (
                <button
                  key={tab}
                  type="button"
                  onClick={() => handleTabChange(tab)}
-                 className={`px-10 py-3 font-semibold capitalize transition-all duration-300 ${
+                 className={`px-8 md:px-12 py-3.5 font-bold capitalize transition-all duration-300 rounded-full w-full sm:w-auto text-sm tracking-wide ${
                    activeTab === tab
-                     ? 'bg-[#00c853] text-white shadow-[0_10px_25px_rgba(0,0,0,0.15)] border-[3px] border-black z-10 relative scale-105'
-                     : 'bg-gradient-to-r from-[#9c27b0] to-[#e91e63] text-white shadow-[0_10px_25px_rgba(156,39,176,0.4)] hover:scale-105 opacity-90'
+                     ? 'bg-gradient-to-r from-[#b968c7] to-[#7f26d9] text-white shadow-md transform scale-100'
+                     : 'bg-gray-100 sm:bg-transparent text-gray-500 hover:text-gray-900 hover:bg-gray-200 sm:hover:bg-white/60'
                  }`}
                >
                  {tab}
