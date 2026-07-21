@@ -6,6 +6,7 @@ import BlogManager from './pages/BlogManager';
 import BlogEditor from './pages/BlogEditor';
 import ContactMessages from './pages/ContactMessages';
 import StrategyManager from './pages/StrategyManager';
+import CaseStudyLeads from './pages/CaseStudyLeads';
 import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -50,6 +51,7 @@ const App = () => {
             <Route path="/blogs/edit/:id" element={<BlogEditor />} />
             <Route path="/contacts" element={<ContactMessages />} />
             <Route path="/strategies" element={<StrategyManager />} />
+            <Route path="/case-studies" element={<CaseStudyLeads />} />
           </Route>
         </Route>
       </Routes>

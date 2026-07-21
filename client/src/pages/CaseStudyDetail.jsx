@@ -38,7 +38,7 @@ const CaseStudyDetail = () => {
       </div>
 
       <div className="px-8 relative z-10">
-        <CaseStudyForm />
+        <CaseStudyForm caseStudyId={id} />
       </div>
     </div>
   );

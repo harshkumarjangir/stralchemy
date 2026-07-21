@@ -8,7 +8,8 @@ const AdminLayout = () => {
   const navItems = [
     { name: 'Blogs', path: '/' },
     { name: 'Contact Messages', path: '/contacts' },
-    { name: 'Strategies', path: '/strategies' }
+    { name: 'Strategies', path: '/strategies' },
+    { name: 'Case Studies', path: '/case-studies' }
   ];
 
   const handleLogout = () => {
