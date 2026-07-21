@@ -8,7 +8,7 @@ const HeroSection = () => {
         {/* Text Content */}
         <div className="space-y-6">
           <p className="font-semibold text-lg text-brand-purple">
-            Where Strategy Strikes <span className="text-yellow-500">Gold</span>
+            Where Strategy Strikes <span className="text-yellow-500">GOLD</span>
           </p>
           <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
             <span className="bg-gradient-to-r from-brand-purple to-brand-green bg-clip-text text-transparent">
@@ -31,11 +31,11 @@ const HeroSection = () => {
         {/* Image/Graphic Content */}
         <div className="relative rounded-lg overflow-hidden shadow-xl border border-gray-100">
           <div className="aspect-w-4 aspect-h-3 bg-gray-50">
-             <img 
-               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-               alt="Business Analytics and Strategy" 
-               className="w-full h-full object-cover rounded-lg"
-             />
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Business Analytics and Strategy"
+              className="w-full h-full object-cover rounded-lg"
+            />
           </div>
         </div>
       </div>
