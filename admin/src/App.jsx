@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import AdminLayout from './components/AdminLayout';
+import Dashboard from './pages/Dashboard';
 import BlogManager from './pages/BlogManager';
 import BlogEditor from './pages/BlogEditor';
 import ContactMessages from './pages/ContactMessages';
@@ -46,7 +47,8 @@ const App = () => {
         
         <Route element={<ProtectedRoute />}>
           <Route element={<AdminLayout />}>
-            <Route path="/" element={<BlogManager />} />
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/blogs" element={<BlogManager />} />
             <Route path="/blogs/new" element={<BlogEditor />} />
             <Route path="/blogs/edit/:id" element={<BlogEditor />} />
             <Route path="/contacts" element={<ContactMessages />} />
