@@ -8,7 +8,7 @@ const MarketingHero = () => {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-pink-600 rounded-full blur-[120px] opacity-20 pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
       
       <div className="max-w-5xl mx-auto text-center relative z-10">
-        <p className="text-brand-purple font-bold tracking-[0.2em] uppercase mb-6 text-sm">
+        <p className="text-brand-green font-bold tracking-[0.2em] uppercase mb-6 text-lg md:text-xl">
           Service / Marketing
         </p>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-8 leading-tight tracking-tighter">
