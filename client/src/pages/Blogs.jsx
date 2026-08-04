@@ -25,9 +25,9 @@ const Blogs = () => {
     <div className="bg-gray-50 min-h-screen pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-8">
         <div className="text-center mb-16 relative z-10">
-          <p className="text-brand-purple font-bold tracking-[0.2em] uppercase mb-4 text-sm">
+          {/* <p className="text-brand-purple font-bold tracking-[0.2em] uppercase mb-4 text-sm">
             Our Insights
-          </p>
+          </p> */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
             The Stralchemy <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-green">Blog</span>
           </h1>
@@ -43,17 +43,17 @@ const Blogs = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
-              <Link 
-                key={blog._id} 
+              <Link
+                key={blog._id}
                 to={`/blogs/${blog.slug}`}
                 className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group flex flex-col"
               >
                 <div className="h-48 bg-gray-200 overflow-hidden relative">
                   {blog.coverImage ? (
-                    <img 
+                    <img
                       src={blog.coverImage.startsWith('http') ? blog.coverImage : `${import.meta.env.VITE_API_URL}${blog.coverImage}`}
-                      alt={blog.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      alt={blog.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center">
