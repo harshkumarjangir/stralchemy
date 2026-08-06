@@ -18,6 +18,7 @@ import CaseStudies from './pages/CaseStudies';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail';
+import ThankYou from './pages/ThankYou';
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
             <Route path="/blogs/:slug" element={<BlogDetail />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/thank-you" element={<ThankYou />} />
             {/* Add more routes here as needed */}
           </Routes>
         </main>

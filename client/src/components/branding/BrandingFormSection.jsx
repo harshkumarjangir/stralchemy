@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const BrandingFormSection = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
@@ -120,7 +122,7 @@ Additional Client Info: ${formData.additionalInfo}
               formData: backendPayload
             }, { headers });
 
-            setSuccessMsg('Payment successful! Your strategy request has been submitted. Check your Dashboard.');
+            setSuccessMsg('Payment successful! Redirecting to Thank You page...');
             setFormData({
               name: '', businessName: '', email: '', phone: '', industry: '', stage: '', website: '',
               brandingNeed: '', currentAssets: [], brandAttributes: [], admiredBrands: '', vision: '',
@@ -128,6 +130,7 @@ Additional Client Info: ${formData.additionalInfo}
             });
             // Reset checkboxes
             document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            navigate('/thank-you?type=branding');
           } catch (err) {
             setErrorMsg('Payment verification failed.');
           }

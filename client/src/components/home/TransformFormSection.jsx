@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const TransformFormSection = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('branding');
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
@@ -78,12 +80,14 @@ const TransformFormSection = () => {
               formData: { ...formData, packageTab: activeTab }
             }, { headers });
 
-            setSuccessMsg('Payment successful! Your strategy request has been submitted. Check your Dashboard.');
+            setSuccessMsg('Payment successful! Redirecting to Thank You page...');
             setFormData({
               name: '', email: '', phone: '', businessName: '', industry: '',
               stage: '', website: '', vision: '', challenges: '', goals: '',
               audience: '', additionalInfo: '', packageValue: ''
             });
+            const targetType = activeTab === 'marketing' ? 'marketing' : 'branding';
+            navigate(`/thank-you?type=${targetType}`);
           } catch (err) {
             setErrorMsg('Payment verification failed.');
           }
