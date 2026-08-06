@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 
 const ThankYou = () => {
@@ -6,6 +6,13 @@ const ThankYou = () => {
   const type = searchParams.get('type')?.toLowerCase() || 'branding';
 
   const isMarketing = type === 'marketing';
+
+  useEffect(() => {
+    if (window.fbq) {
+      window.fbq('track', 'PageView');
+      window.fbq('track', 'Lead', { content_name: isMarketing ? 'Marketing Strategy' : 'Branding Strategy' });
+    }
+  }, [isMarketing]);
 
   const content = isMarketing
     ? {
